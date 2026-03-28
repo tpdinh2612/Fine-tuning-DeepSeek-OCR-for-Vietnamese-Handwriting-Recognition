@@ -1,9 +1,21 @@
 # Fine-tuning DeepSeek-OCR for Vietnamese Handwriting Recognition
 
-## 1. Problem Statement
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Library](https://img.shields.io/badge/Library-Transformers-orange)
+![Library](https://img.shields.io/badge/Library-Unsloth-orange)
+![Status](https://img.shields.io/badge/Status-Completed-success)
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Dataset](#dataset)
+3. [Methods & Algorithm](#methods--algorithm)
+4. [Evaluation Metrics](#evaluation-metrics)
+5. [Experimental Results](#experimental-results)
+
+## Introduction
 This project focuses on Vietnamese handwriting recognition (Handwriting OCR), one of the major challenges in Natural Language Processing and Computer Vision due to the diversity of handwriting styles, character angles, and Vietnamese diacritical marks. The objective is to fine-tune the DeepSeek-OCR model to improve the accuracy and efficiency of text extraction from handwritten images.
 
-## 2. Dataset
+## Dataset
 The dataset used in this project is **UIT-HWDB**, a standard benchmark dataset for evaluating Vietnamese handwriting recognition in unconstrained conditions.  
 **Dataset Link:** [UIT-HWDB](https://github.com/nghiangh/UIT-HWDB-dataset)
 
@@ -21,7 +33,7 @@ The experimental setup uses the following data split:
 | Validation | 100 (10%) | 200 (10%) |
 | Test | 100 | 100 |
 
-## 3. Fine-tuning Model DeepSeek-OCR
+## Methods & Algorithm
 The training process is based on the DeepSeek-OCR foundation model using QLoRA (Quantized Low-Rank Adaptation) technique to optimize hardware resources. The [Unsloth](https://unsloth.ai/docs/models/tutorials/deepseek-ocr-how-to-run-and-fine-tune) library is used to accelerate training, saving memory and increasing training speed by 2x.
 
 ### Training Configuration
@@ -38,12 +50,12 @@ The training process is based on the DeepSeek-OCR foundation model using QLoRA (
   - Optimizer: AdamW 8bit
   - Image size: 640x640, Base size: 768x768
 
-## 4. Evaluation Metrics
+## Evaluation Metrics
 The model performance is assessed using two primary metrics:  
 1. Character Error Rate (CER): Measures the percentage of character-level errors in the transcription.  
-2. Word Error Rate (WER): Measures the percentage of word-level errors in the transcription.  
+2. Word Error Rate (WER): Measures the percentage of word-level errors in the transcription.
 
-### Performance Improvements
+## Experimental Results
 | Model | CER | Δ CER | WER | Δ WER |
 | :--- | :--- | :--- | :--- | :--- |
 | Base Model | 1.4032 | - | 1.1309 | - |
